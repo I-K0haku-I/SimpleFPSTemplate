@@ -75,7 +75,7 @@ void AFPSCharacter::Fire()
 		UAnimInstance* AnimInstance = Mesh1PComponent->GetAnimInstance();
 		if (AnimInstance)
 		{
-			AnimInstance->PlaySlotAnimationAsDynamicMontage(FireAnimation, "Arms", 0.0f);
+			AnimInstance->PlaySlotAnimationAsDynamicMontage(Cast<UAnimSequenceBase>(FireAnimation), "Arms", 0.0f);
 		}
 	}
 }

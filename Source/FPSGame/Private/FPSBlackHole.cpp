@@ -51,6 +51,6 @@ void AFPSBlackHole::Tick(float DeltaTime)
 	AttractionSphereComp->GetOverlappingComponents(OverlappedComp);
 	for (UPrimitiveComponent* Comp : OverlappedComp)
 		if (Comp && Comp->IsSimulatingPhysics())
-			Comp->AddForce((GetActorLocation() - Comp->GetComponentLocation()) * SuccStrength);
+			Comp->AddForce(((AttractionSphereComp->GetScaledSphereRadius() * (GetActorLocation() - Comp->GetComponentLocation()).GetSafeNormal()) - (GetActorLocation() - Comp->GetComponentLocation())) * SuccStrength);
 
 }
